@@ -11,22 +11,27 @@ export const LOGIN = gql`
   }
 `;
 
-export const ADD_ORDER = gql`
-  mutation addOrder($products: [ID]!) {
-    addOrder(products: $products) {
-      purchaseDate
-      products {
-        _id
-        name
-        description
-        price
-        quantity
-        category {
-          name
+export const ADD_Book = gql`
+  mutation addBook(
+    $title: String!
+    $authors: [String!]
+       $bookId: String!
+        $description: String!
+         $image: String!
+    ) {
+    addBook(
+      title: $title,
+      authors: $authors,
+      bookId: $bookId,
+      description: $description,
+      image: $image
+      ) {
+        user {
+          _id
         }
       }
     }
-  }
+  
 `;
 
 export const ADD_USER = gql`
@@ -41,7 +46,9 @@ export const ADD_USER = gql`
       password: $password
     ) {
       token
-  
+      user {
+        _id
+      }
     }
   }
 `;

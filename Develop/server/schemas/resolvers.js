@@ -56,18 +56,18 @@ const resolvers = {
       const user = await User.create(args);
       const token = signToken(user);
 
-      return { token };
+      return { token, user };
     },
-    addOrder: async (parent, { products }, context) => {
-      console.log(context);
+    addBook: async (parent, {authors, title, bookId, description, image }, context) => {
+      console.log('we are adding a book!!!!',context);
       if (context.user) {
-        const order = new Order({ products });
+      
 
-        await User.findByIdAndUpdate(context.user.id, {
-          $push: { orders: order },
+       const updatedUser =  await User.findByIdAndUpdate(context.user.id, {
+          $push: { savedBooks: {authors, title, bookId, description, image} },
         });
 
-        return order;
+        return updatedUser;
       }
 
       throw new AuthenticationError('Not logged in');
