@@ -8,8 +8,9 @@ module.exports = {
   // function for our authenticated routes
   authMiddleware: function (req, res, next) {
     console.log('WE AR EIN AUTH MIDDLEWARE!')
-    // allows token to be sent via  req.query or headers
+    if (req.query && req.headers) {   // allows token to be sent via  req.query or headers
     let token = req.query.token || req.headers.authorization;
+    }
 
     // ["Bearer", "<tokenvalue>"]
     if (req.headers.authorization) {

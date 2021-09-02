@@ -12,25 +12,23 @@ export const LOGIN = gql`
 `;
 
 export const ADD_Book = gql`
-  mutation addBook(
-    $title: String!
-    $authors: [String!]
-       $bookId: String!
-        $description: String!
-         $image: String!
-    ) {
-    addBook(
-      title: $title,
-      authors: $authors,
-      bookId: $bookId,
-      description: $description,
-      image: $image
-      ) {
-        user {
-          _id
-        }
-      }
-    }
+mutation addBook(
+  $title: String!
+  $authors: [String!]
+  $bookId: String!
+  $description: String!
+  $image: String!
+) {
+  addBook(
+    title: $title
+    authors: $authors
+    bookId: $bookId
+    description: $description
+    image: $image
+  ) {
+    _id
+  }
+}
   
 `;
 

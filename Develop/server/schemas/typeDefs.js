@@ -42,6 +42,9 @@ const typeDefs = gql`
     token: ID
     user: User
   }
+  type Test {
+    name: String!
+  }
 
   type Query {
     categories: [Category]

@@ -67,7 +67,8 @@ const resolvers = {
           $push: { savedBooks: {authors, title, bookId, description, image} },
         });
 
-        return updatedUser;
+        return updatedUser; 
+        //return {name: 'test'}
       }
 
       throw new AuthenticationError('Not logged in');

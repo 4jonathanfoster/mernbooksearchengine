@@ -73,6 +73,15 @@ const SearchBooks = () => {
       // if (!response.ok) {
       //   throw new Error('something went wrong!');
       // }
+      var test  = {
+        title: bookToSave.title,
+        authors: bookToSave.authors,
+        bookId: bookToSave.bookId,
+        description: bookToSave.description,
+        image: bookToSave.image
+
+      }
+      console.log('testtttt', test)
 
       const mutationResponse = await addbook({
         variables: {
